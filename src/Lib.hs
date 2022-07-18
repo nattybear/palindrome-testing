@@ -3,8 +3,10 @@ module Lib
   , preprocess
   ) where
 
+import Data.Char (isPunctuation)
+
 preprocess :: String -> String
-preprocess text = filter (not . (`elem` ['!','.'])) text
+preprocess = filter (not . isPunctuation)
 
 isPalindrome :: String -> Bool
 isPalindrome text = cleanText == reverse cleanText
